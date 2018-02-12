@@ -1,0 +1,78 @@
+<!DOCTYPE thml>
+<html lang="ja">
+
+<head>
+  <title>Webpack test</title>
+</head>
+
+<body>
+  <div id="app">
+    <div class="mainContainer">
+      <ul class="breadcrumb">
+        <li itemscope="itemscope" itemtype="http://data-vocabulary.org/Breadcrumb">
+          <a to="/home"><span itemprop="title">ホーム</span></a>
+        </li>
+        <!--
+<li itemscope="itemscope" itemtype="http://data-vocabulary.org/Breadcrumb">
+  <a href="カテゴリーＵＲＬ" itemprop="url">
+    <span itemprop="title">{{subCate}}</span>
+  </a>
+</li>
+-->
+        <li itemscope="itemscope" itemtype="http://data-vocabulary.org/Breadcrumb">
+          <span itemprop="title">{{title}}</span>
+        </li>
+      </ul>
+      <div class="main">
+        <div class="left">
+          <div class="video">
+            <video id="video" controls :src="videoUrl" @click="saisei()" autobuffer></video>
+          </div>
+          <div class="itemBox">
+            <a href="https://github.com/evesanta/eduWebSite" 　target="_blank">
+          <span class="gitHub">
+            <!-- <octicon name="mark-github"></octicon>
+            <octicon name="logo-github"></octicon> -->
+          </span>
+          <span　class="tooltip">動画で紹介した全てのコード</span>
+        </a>
+
+            <a v-if="videoData[0] != '/video/'" :to="videoData[0]">
+              <el-button> &lt; {{videoData[2]}}</el-button>
+              <span　class="tooltip">前の動画へ</span>
+            </a>
+            <el-button v-else　class="is-disabled">&lt;</el-button>
+
+            <a v-if="videoData[1] != '/videao/'" :to="videoData[1]">
+              <el-button> {{videoData[3]}} &gt; </el-button>
+              <span　class="tooltip">次の動画へ</span>
+            </a>
+            <el-button v-else　class="is-disabled">&lt;</el-button>
+
+          </div>
+          <div class="chapter">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th class="time">時間</th>
+                  <th class="name">チャプター</th>
+                </tr>
+              </thead>
+              <tbody id="tableBody">
+                <tr v-for="(item, index) in tableData" :class="{ 'nowPlay': item.time <= nowTime && nowTime < item.endTime}" @click="say(index)">
+                  <td class="time">{{ item.time | toTime }}</td>
+                  <td class="name">{{ item.name }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="right">
+          <div v-html="source"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript" src="js/bundle.js"></script>
+</body>
+<html>
