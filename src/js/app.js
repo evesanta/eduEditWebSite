@@ -6,6 +6,16 @@ import hljs from "highlight.js"
 
 import marked from "marked"
 
+// ElementUI
+import ElementUI from 'element-ui'
+// import 'element-ui/lib/theme-default/index.css'
+
+// ElementUIでの言語設定、datePickerとかで適用される
+import locale from 'element-ui/lib/locale/lang/ja'
+
+Vue.use(ElementUI, {
+  locale
+});
 
 
 marked.setOptions({
