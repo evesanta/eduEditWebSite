@@ -8,6 +8,10 @@
 
 <body>
   <div id="app">
+    <header>
+      <h1>動画教材の編集場所</h1>
+
+    </header>
     <div class="mainContainer">
       <ul class="breadcrumb">
         <li itemscope="itemscope" itemtype="http://data-vocabulary.org/Breadcrumb">
@@ -22,9 +26,14 @@
 -->
         <li itemscope="itemscope" itemtype="http://data-vocabulary.org/Breadcrumb">
           <span itemprop="title">{{title}}</span>
+          <el-button class="inputButton" @click="selectNow=1" type="primary" plain>入力</el-button>
+          <div class="titleInputBox" :class="selectNow == 1 ? 'inputBoxShow' : '' ">
+            <h4>タイトルを入力</h4>
+            <input v-model="title" />
+          </div>
         </li>
       </ul>
-      <div class="main">
+      <div class="main" @click="selectNow=0">
         <div class="left">
           <div class="video">
             <video id="video" controls :src="videoUrl" @click="saisei()" autobuffer></video>
