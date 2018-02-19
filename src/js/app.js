@@ -30,13 +30,14 @@ var vm = new Vue({
     return {
       nowTime: 0,
       tableData: [],
-      title: '',
+      title: 'タイトルを入力してください',
       subCate: '',
       videoUrl: '',
       loaded: "",
       source: "",
       videoData: ["/video/", "/video/", "", ""],
-      chapOk: true
+      chapOk: true,
+      selectNow: 0
     }
   },
   mounted() {
@@ -54,6 +55,7 @@ var vm = new Vue({
       video.play();
     },
     saisei: function() {
+      if (this.selectNow != 0) return
       this.chapOk = true;
       this.moveScroll(this.nowTime);
       video.paused ? video.play() : video.pause();
