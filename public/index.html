@@ -33,12 +33,19 @@
           </div>
         </li>
       </ul>
-      <div class="main" @click="selectNow=0">
+      <div class="main">
         <div class="left">
           <div class="video">
             <video id="video" controls :src="videoUrl" @click="saisei()" autobuffer></video>
           </div>
-          <div class="itemBox">
+          <div class="itemBox"> 
+            <div class="inputVideo">
+              <div class="videoInputBox" :class="selectNow == 4 ? 'inputBoxShow' : '' ">
+                <h4>URLを入力してください</h4>
+                <input v-model="videoUrl" placeholder="http://...."/>
+              </div>
+              <el-button @click="selectNow= selectNow==4? 0: 4">ビデオ入力</el-button>
+            </div>
             <a href="https://github.com/evesanta/eduWebSite" 　target="_blank">
           <span class="gitHub">
             <!-- <octicon name="mark-github"></octicon>
