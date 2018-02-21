@@ -40,23 +40,31 @@
           </div>
           <div class="itemBox">
             <a href="https://github.com/evesanta/eduWebSite" 　target="_blank">
-          <span class="gitHub">
-            <!-- <octicon name="mark-github"></octicon>
-            <octicon name="logo-github"></octicon> -->
-          </span>
-          <span　class="tooltip">動画で紹介した全てのコード</span>
-        </a>
-
-            <a v-if="videoData[0] != '/video/'" :to="videoData[0]">
-              <el-button> &lt; {{videoData[2]}}</el-button>
-              <span　class="tooltip">前の動画へ</span>
+            <span class="gitHub">
+              <!-- <octicon name="mark-github"></octicon>
+              <octicon name="logo-github"></octicon> -->
+            </span>
+            <span　class="tooltip">動画で紹介した全てのコード</span>
             </a>
+
+            <div class="flameVideo">
+              <el-button @click="selectNow=2"> &lt; {{videoData[2]}}</el-button>
+              <span　class="tooltip">前の動画へ</span>
+              <div class="titleInputBox" :class="selectNow == 2 ? 'inputBoxShow' : '' ">
+                <h4>タイトルを入力</h4>
+                <input v-model="title" />
+              </div>
+            </div>
             <el-button v-else　class="is-disabled">&lt;</el-button>
 
-            <a v-if="videoData[1] != '/videao/'" :to="videoData[1]">
-              <el-button> {{videoData[3]}} &gt; </el-button>
+            <div class="flameVideo">
+              <el-button @click="selectNow=3"> {{videoData[3]}} &gt; </el-button>
               <span　class="tooltip">次の動画へ</span>
-            </a>
+              <div class="titleInputBox" :class="selectNow == 3 ? 'inputBoxShow' : '' ">
+                <h4>タイトルを入力</h4>
+                <input v-model="title" />
+              </div>
+            </div>
             <el-button v-else　class="is-disabled">&lt;</el-button>
 
           </div>

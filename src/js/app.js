@@ -36,6 +36,8 @@ var vm = new Vue({
       loaded: "",
       source: "",
       videoData: ["/video/", "/video/", "", ""],
+      preVideo: "",
+      nextVideo: "",
       chapOk: true,
       selectNow: 0
     }
