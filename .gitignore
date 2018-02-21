@@ -75,3 +75,5 @@ public/scss/pankuzu.css
 public/scss/main.css
 public/scss/highlighit.css
 public/scss/elements.css
+
+public/js/bundle.js
