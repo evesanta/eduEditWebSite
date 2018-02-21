@@ -1,14 +1,9 @@
 import Vue from "vue"
-
 import axios from "axios"
-
 import hljs from "highlight.js"
-
 import marked from "marked"
-
 // ElementUI
 import ElementUI from 'element-ui'
-// import 'element-ui/lib/theme-default/index.css'
 
 // ElementUIでの言語設定、datePickerとかで適用される
 import locale from 'element-ui/lib/locale/lang/ja'
@@ -30,22 +25,24 @@ var vm = new Vue({
     return {
       nowTime: 0,
       tableData: [],
-      title: 'タイトルを入力してください',
+      title: 'タイトル',
       subCate: '',
-      videoUrl: '',
+      videoUrl: 'https://rjie.meijo-u.ac.jp/lectures/ie-exp3/video/WINCAPS3_ControlMethod.mp4',
       loaded: "",
       source: "",
       videoData: ["/video/", "/video/", "", ""],
       preVideo: "",
       nextVideo: "",
       chapOk: true,
-      selectNow: 0
+      selectNow: 0,
+      tempName: "",
+      deleteIndex: -1
     }
   },
   mounted() {
     const video = document.getElementById("video");
     video.addEventListener('timeupdate', () => {
-      this.nowTime = video.currentTime
+      this.nowTime = video.currentTime | 0;
     }, false);
   },
   methods: {
@@ -83,8 +80,30 @@ var vm = new Vue({
           document.getElementById("tableBody").scrollTop = index * 42;
         }
       })
+    },
+    addChapter: function(nowt, name) {
+      console.log(nowt)
+      this.tableData.push({
+        time: nowt || 0,
+        endTime: nowt + 1,
+        name: name,
+        nowPlay: false
+      })
+      this.tableData.sort(function(a, b) {
+        return (a.time < b.time) ? -1 : 1;
+      });
+    },
+    chapterDelete: function(index) {
+      console.log(this.selectNow)
+      if (this.selectNow == index + 100) {
+        delete this.tableData[index + ""]
+        this.selectNow = 0;
+      } else {
+        this.selectNow = index + 100;
+      }
     }
   },
+
 
   created: async function() {
     this.loaded = "loaded"
@@ -92,7 +111,6 @@ var vm = new Vue({
   },
   filters: {
     toTime: function(value) {
-      if (!value) return ''
       return Math.floor(value / 60) + ":" + ('00' + (value % 60)).slice(-2);
     },
     marked: marked
@@ -108,4 +126,4 @@ var vm = new Vue({
   }
 })
 
-// this.app.$options.methods.update(this.app.$options.data)
+// this.app.$options.methods.update(this.app.$options.data)///
