@@ -49,7 +49,7 @@ header {
         width: 200px;
         height: 100px;
         left: 40px;
-        transition: all 0.2s 0s linear;
+        transition: all 0.3s 0.1s linear;
         opacity: 0;
         top: 0;
 
@@ -61,6 +61,8 @@ header {
       .inputBoxShow {
         opacity: 1;
         top: 20px;
+        z-index: 5;
+        transition: opacity 0.3s linear 0s , top 0.2s linear 0.1s;
       }
     }
   }
@@ -79,8 +81,10 @@ header {
       width: 768px;
 
       .video {
+        position: relative;
         height: $videoHeight;
         background-color: antiquewhite;
+        z-index: 4;
 
         video {
           width: 100%;
@@ -96,18 +100,20 @@ header {
         align-items: center;
         justify-content: flex-end;
 
-        .inputVideo{
+        .inputVideo {
           position: relative;
+
           button {
             position: relative;
             margin-right: 20px;
             z-index: 5;
           }
 
-          .videoInputBox{
+          .videoInputBox {
             text-align: center;
             z-index: 1;
             transition: all 0.2s 0s linear;
+            transition: all 0.2s linear 0s;
             opacity: 0;
             background-color: white;
             border: 2px solid #CCC;
@@ -122,9 +128,11 @@ header {
           .inputBoxShow {
             opacity: 1;
             top: -129px;
+            z-index: 5;
+            transition: opacity 0.3s linear 0s , top 0.2s linear 0.1s;
           }
         }
-        
+
         a {
           transition: opacity 0.3s 0s ease;
           text-decoration: none;
@@ -192,6 +200,71 @@ header {
         height: calc(100vh - 432px - 50px - 72px);
         width: 100%;
         background-color: burlywood;
+        position: relative;
+
+        .inputChapter {
+          position: absolute;
+          right: 0;
+
+          .inputChapterButton {
+            position: relative;
+            margin-top: 4px;
+            z-index: 5;
+            margin-right: 10px;
+          }
+
+          .inputChapterBox {
+            position: absolute;
+            background-color: white;
+            border: 2px solid #CCC;
+            left: -120px;
+            width: 300px;
+            height: 200px;
+            padding: 10px;
+            z-index: 0;
+            opacity: 0;
+            top: 30px;
+            transition: all 0.3s 0.1s linear;
+
+            h3 {
+              margin: 0;
+              text-align: center;
+            }
+
+            h4 {
+              margin: 0;
+            }
+
+            .chapterTimeInput {
+              display: flex;
+            }
+
+            .yazirusi {
+              margin: 0 10px;
+            }
+
+            .inputName {
+              margin-top: 10px;
+            }
+
+            button {
+              margin: 20px auto;
+              width: 150px;
+              display: block;
+            }
+
+            .nameInputBox {
+              width: 250px;
+            }
+          }
+
+          .chapterBoxShow {
+            opacity: 1;
+            top: 45px;
+            z-index: 4;
+            transition: opacity 0.3s linear 0s , top 0.2s linear 0.1s;
+          }
+        }
 
         .table {
           margin: 0 auto;
@@ -236,16 +309,23 @@ header {
               opacity: 0.4;
               font-size: 14px;
               transition: background-color 0.5s 0s ease;
-
-              &:hover {
-                background-color: #EFE;
-                opacity: 0.7;
-              }
             }
 
-            .nowPlay {
-              color: $mainColor;
-              opacity: 1;
+            .nextDelete {
+              background-color: red;
+
+              &::after {
+                color: white;
+                opacity: 1;
+                background-color: black;
+                width: 100px;
+                height: 44px;
+                content: "再度クリックで削除";
+                position: absolute;
+                left: 770px;
+                border-radius: 4px;
+                padding: 4px;
+              }
             }
           }
 
