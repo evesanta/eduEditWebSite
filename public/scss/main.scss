@@ -202,6 +202,8 @@ header {
           .inputChapterButton {
             position: relative;
             margin-top: 4px;
+            z-index: 5;
+            margin-right: 10px;
           }
 
           .inputChapterBox {
@@ -212,7 +214,10 @@ header {
             width: 300px;
             height: 200px;
             padding: 10px;
-            z-index: 4;
+            z-index: 0;
+            opacity: 0;
+            top: 30px;
+            transition: all 0.2s 0s linear;
 
             h3 {
               margin: 0;
@@ -244,6 +249,12 @@ header {
             .nameInputBox {
               width: 250px;
             }
+          }
+
+          .chapterBoxShow {
+            opacity: 1;
+            top: 45px;
+            z-index: 4;
           }
         }
 
@@ -294,6 +305,19 @@ header {
 
             .nextDelete {
               background-color: red;
+
+              &::after {
+                color: white;
+                opacity: 1;
+                background-color: black;
+                width: 100px;
+                height: 44px;
+                content: "再度クリックで削除";
+                position: absolute;
+                left: 770px;
+                border-radius: 4px;
+                padding: 4px;
+              }
             }
           }
 
