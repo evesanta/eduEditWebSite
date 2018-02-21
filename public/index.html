@@ -26,7 +26,7 @@
 -->
         <li itemscope="itemscope" itemtype="http://data-vocabulary.org/Breadcrumb">
           <span itemprop="title">{{title}}</span>
-          <el-button class="inputButton" @click="selectNow=1" type="primary" plain>入力</el-button>
+          <el-button class="inputButton" @click="selectNow= selectNow==1? 0: 1" type="primary" plain>入力</el-button>
           <div class="titleInputBox" :class="selectNow == 1 ? 'inputBoxShow' : '' ">
             <h4>タイトルを入力</h4>
             <input v-model="title" />
@@ -38,11 +38,11 @@
           <div class="video">
             <video id="video" controls :src="videoUrl" @click="saisei()" autobuffer></video>
           </div>
-          <div class="itemBox"> 
+          <div class="itemBox">
             <div class="inputVideo">
               <div class="videoInputBox" :class="selectNow == 4 ? 'inputBoxShow' : '' ">
                 <h4>URLを入力してください</h4>
-                <input v-model="videoUrl" placeholder="http://...."/>
+                <input v-model="videoUrl" placeholder="http://...." />
               </div>
               <el-button @click="selectNow= selectNow==4? 0: 4">ビデオ入力</el-button>
             </div>
