@@ -25,7 +25,7 @@ var vm = new Vue({
     return {
       nowTime: 0,
       tableData: [],
-      title: 'タイトルを入力してください',
+      title: 'タイトル',
       subCate: '',
       videoUrl: 'https://rjie.meijo-u.ac.jp/lectures/ie-exp3/video/WINCAPS3_ControlMethod.mp4',
       loaded: "",
