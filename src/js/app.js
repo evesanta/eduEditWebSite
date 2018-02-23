@@ -36,7 +36,8 @@ var vm = new Vue({
       chapOk: true,
       selectNow: 0,
       tempName: "",
-      deleteIndex: -1
+      deleteIndex: -1,
+      exportJson: "こん"
     }
   },
   mounted() {
@@ -108,6 +109,10 @@ var vm = new Vue({
   created: async function() {
     this.loaded = "loaded"
     this.update()
+    // this.exportJson = JSON.stringify({
+    //   x: 5,
+    //   y: 6
+    // })
   },
   filters: {
     toTime: function(value) {

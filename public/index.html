@@ -26,7 +26,7 @@
 -->
         <li itemscope="itemscope" itemtype="http://data-vocabulary.org/Breadcrumb">
           <span itemprop="title">{{title}}</span>
-          <el-button class="inputButton" @click="selectNow= selectNow==1? 0: 1" type="primary" plain>入力</el-button>
+          <el-button class="inputButton" @click="selectNow= selectNow==10? 0: 10" type="primary" plain>入力</el-button>
           <div class="titleInputBox" :class="selectNow == 1 ? 'inputBoxShow' : '' ">
             <h4>タイトルを入力</h4>
             <input v-model="title" />
@@ -119,7 +119,8 @@
           </div>
         </div>
         <div class="right">
-          <div v-html="source"></div>
+          <div v-html="source" v-if="selectNow < 10 || 12 < selectNow"></div>
+          <div v-if="selectNow == 10">{{ exportJson }}</div>
         </div>
       </div>
     </div>
