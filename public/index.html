@@ -55,20 +55,34 @@
             </a>
 
             <div class="flameVideo">
-              <el-button @click="selectNow=2"> &lt; {{videoData[2]}}</el-button>
+              <el-button @click="selectNow= selectNow==2? 0: 2"> &lt; {{videoData[2]}}</el-button>
               <span class="tooltip">前の動画へ</span>
-              <div class="titleInputBox" :class="selectNow == 2 ? 'inputBoxShow' : '' ">
-                <h4>タイトルを入力</h4>
-                <input v-model="title" />
+              <div class="moveVideoInputBox" :class="selectNow == 2 ? 'inputBoxShow' : '' ">
+                <div class="inputVideoBoxFlame">
+                  <h4>動画タイトル：</h4>
+                  <input v-model="videoData[2]"/>
+                </div>
+                <div class="inputVideoBoxFlame">
+                  <h4>動画ＩＤ：</h4>
+                  <input v-model="videoData[0]" placeholder="/video/" />
+                  <!-- videoData[0] = "/video/" + videoData[0] -->
+                </div>
               </div>
             </div>
 
             <div class="flameVideo">
-              <el-button @click="selectNow=3"> {{videoData[3]}} &gt; </el-button>
-              <span　class="tooltip">次の動画へ</span>
-              <div class="titleInputBox" :class="selectNow == 3 ? 'inputBoxShow' : '' ">
-                <h4>タイトルを入力</h4>
-                <input v-model="title" />
+              <el-button @click="selectNow= selectNow==3? 0: 3"> {{videoData[3]}} &gt; </el-button>
+              <span class="tooltip">次の動画へ</span>
+              <div class="moveVideoInputBox" :class="selectNow == 3 ? 'inputBoxShow' : '' ">
+                <div class="inputVideoBoxFlame">
+                  <h4>動画タイトル：</h4>
+                  <input v-model="videoData[3]"/>
+                </div>
+                <div class="inputVideoBoxFlame">
+                  <h4>動画ＩＤ：</h4>
+                  <input v-model="videoData[1]" placeholder="/video/" />
+                  <!-- videoData[1] = "/video/" + videoData[1] -->
+                </div>
               </div>
             </div>
 

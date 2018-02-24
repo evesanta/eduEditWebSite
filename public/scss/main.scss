@@ -101,294 +101,300 @@ header {
         justify-content: flex-end;
 
 
-          .inputVideo {
-            position: relative;
-
-            button {
-              position: relative;
-              margin-right: 20px;
-              z-index: 5;
-            }
-
-            .videoInputBox {
-              text-align: center;
-              z-index: 1;
-              transition: all 0.2s 0s linear;
-              transition: all 0.2s linear 0s;
-              opacity: 0;
-              background-color: white;
-              border: 2px solid #CCC;
-              box-shadow: 2px 2px 4px #777;
-              position: absolute;
-              left: -50px;
-              height: 120px;
-              width: 250px;
-              top: -100px;
-            }
-
-            .inputBoxShow {
-              opacity: 1;
-              top: -129px;
-              z-index: 5;
-              transition: opacity 0.3s linear 0s , top 0.2s linear 0.1s;
-            }
-          }
-
-
-
-          .flameVideo {
-            transition: opacity 0.3s 0s ease;
-            text-decoration: none;
-            position: relative;
-            margin-right: 20px;
-
-            &:visited {
-              color: #000;
-            }
-
-            .gitHub {
-              background-color: white;
-              height: 38px;
-              line-height: 42px;
-              padding: 0 20px;
-              border-radius: 4px;
-              border: 1px solid #dcdfe6;
-              color: #000;
-              display: inline-block;
-              height: 38px;
-              text-align: center;
-
-              &:hover {
-                opacity: 0.8;
-              }
-
-              &:hover + .tooltip {
-                opacity: 0.9;
-                transition: opacity 0.5s 0.4s ease;
-              }
-            }
-
-            .tooltip {
-              position: absolute;
-              width: 140px;
-              top: 50px;
-              background-color: #666;
-              color: white;
-              padding: 5px 10px;
-              box-sizing: border-box;
-              border-radius: 5px;
-              opacity: 0;
-              transition: opacity 0.2s 0s ease;
-              text-align: center;
-            }
-
-            button {
-              &:hover {
-                opacity: 0.8;
-              }
-
-              &:hover + .tooltip {
-                opacity: 0.9;
-                transition: opacity 0.5s 0.4s ease;
-              }
-            }
-
-            .titleInputBox {
-              text-align: center;
-              z-index: 2;
-              position: absolute;
-              background-color: white;
-              border: 2px solid #CCC;
-              box-shadow: 2px 2px 4px #777;
-              width: 200px;
-              height: 100px;
-              left: 40px;
-              transition: all 0.2s 0s linear;
-              opacity: 0;
-              top: 0;
-
-              input {
-                width: 80%;
-              }
-            }
-
-            .inputBoxShow {
-              opacity: 1;
-              top: 20px;
-              z-index: 5;
-            }
-          }
-
-          .is-disabled {
-            margin-right: 20px;
-          }
-        }
-
-        .chapter {
-          height: calc(100vh - 432px - 50px - 72px);
-          width: 100%;
-          background-color: burlywood;
+        .inputVideo {
           position: relative;
 
-          .inputChapter {
+          button {
+            position: relative;
+            margin-right: 20px;
+            z-index: 5;
+          }
+
+          .videoInputBox {
+            text-align: center;
+            z-index: 1;
+            transition: all 0.2s 0s linear;
+            transition: all 0.2s linear 0s;
+            opacity: 0;
+            background-color: white;
+            border: 2px solid #CCC;
+            box-shadow: 2px 2px 4px #777;
             position: absolute;
-            right: 0;
+            left: -50px;
+            height: 120px;
+            width: 250px;
+            top: -100px;
+          }
 
-            .inputChapterButton {
-              position: relative;
-              margin-top: 4px;
-              z-index: 5;
-              margin-right: 10px;
+          .inputBoxShow {
+            opacity: 1;
+            top: -129px;
+            z-index: 5;
+            transition: opacity 0.3s linear 0s , top 0.2s linear 0.1s;
+          }
+        }
+
+
+
+        .flameVideo {
+          transition: opacity 0.3s 0s ease;
+          text-decoration: none;
+          position: relative;
+          margin-right: 20px;
+
+          &:visited {
+            color: #000;
+          }
+
+          .gitHub {
+            background-color: white;
+            height: 38px;
+            line-height: 42px;
+            padding: 0 20px;
+            border-radius: 4px;
+            border: 1px solid #dcdfe6;
+            color: #000;
+            display: inline-block;
+            height: 38px;
+            text-align: center;
+
+            &:hover {
+              opacity: 0.8;
             }
 
-            .inputChapterBox {
-              position: absolute;
-              background-color: white;
-              border: 2px solid #CCC;
-              left: -120px;
-              width: 300px;
-              height: 200px;
-              padding: 10px;
-              z-index: 0;
-              opacity: 0;
-              top: 30px;
-              transition: all 0.3s 0.1s linear;
-
-              h3 {
-                margin: 0;
-                text-align: center;
-              }
-
-              h4 {
-                margin: 0;
-              }
-
-              .chapterTimeInput {
-                display: flex;
-              }
-
-              .yazirusi {
-                margin: 0 10px;
-              }
-
-              .inputName {
-                margin-top: 10px;
-              }
-
-              button {
-                margin: 20px auto;
-                width: 150px;
-                display: block;
-              }
-
-              .nameInputBox {
-                width: 250px;
-              }
-            }
-
-            .chapterBoxShow {
-              opacity: 1;
-              top: 45px;
-              z-index: 4;
-              transition: opacity 0.3s linear 0s , top 0.2s linear 0.1s;
+            &:hover + .tooltip {
+              opacity: 0.9;
+              transition: opacity 0.5s 0.4s ease;
             }
           }
 
-          .table {
-            margin: 0 auto;
-            border-collapse: collapse;
+          .tooltip {
+            position: absolute;
+            width: 140px;
+            top: 50px;
+            background-color: #666;
+            color: white;
+            padding: 5px 10px;
+            box-sizing: border-box;
+            border-radius: 5px;
+            opacity: 0;
+            transition: opacity 0.2s 0s ease;
+            text-align: center;
+          }
+
+          button {
+            &:hover {
+              opacity: 0.8;
+            }
+
+            &:hover + .tooltip {
+              opacity: 0.9;
+              transition: opacity 0.5s 0.4s ease;
+            }
+          }
+
+          .moveVideoInputBox {
+            text-align: center;
+            z-index: 1;
+            transition: all 0.2s 0s linear;
+            transition: all 0.2s linear 0s;
+            opacity: 0;
             background-color: white;
-            text-align: left;
-            line-height: 1.5;
-            border: 2px solid #DDD;
-            z-index: 3;
-            height: 100%;
-            min-height: 128px;
+            border: 2px solid #CCC;
+            box-shadow: 2px 2px 4px #777;
+            position: absolute;
+            left: -300px;
+            height: 120px;
+            width: 350px;
+            top: -100px;
+          }
 
-            thead {
-              display: block;
+          .inputBoxShow {
+            opacity: 1;
+            top: -129px;
+            z-index: 5;
+            transition: opacity 0.3s linear 0s , top 0.2s linear 0.1s;
 
-              th {
-                padding: 10px;
-                font-weight: bold;
-                vertical-align: top;
-                background-color: #EFE;
-                border-bottom: 3px solid $mainColor;
+            .inputVideoBoxFlame{
+              float: left;
+              padding: 15px;
+              h4{
+                display: inline;
               }
-            }
-
-            tbody {
-              cursor: pointer;
-              display: block;
-              overflow-y: scroll;
-              height: calc(100% - 54px);
-
-              &::-webkit-scrollbar {
-                display: none;
-              }
-
-              td {
-                padding: 10px;
-                vertical-align: top;
-                border-bottom: 1px solid #ccc;
-              }
-
-              tr {
-                opacity: 0.4;
-                font-size: 14px;
-                transition: background-color 0.5s 0s ease;
-              }
-
-              .nextDelete {
-                background-color: red;
-
-                &::after {
-                  color: white;
-                  opacity: 1;
-                  background-color: black;
-                  width: 100px;
-                  height: 44px;
-                  content: "再度クリックで削除";
-                  position: absolute;
-                  left: 770px;
-                  border-radius: 4px;
-                  padding: 4px;
-                }
-              }
-            }
-
-            .time {
-              padding-left: 40px;
-              width: $tableTimeWidth;
-            }
-
-            .name {
-              width: $leftWidth - $tableTimeWidth;
             }
           }
         }
+
+        // .is-disabled {
+        //   margin-right: 20px;
+        // }
       }
 
-      .right {
-        width: $main-width - $leftWidth;
-        border: 3px solid #AAA;
-        box-sizing: border-box;
-        padding: 0 20px;
-        background-color: rgb(252, 249, 241);
-        height: 100%;
-        overflow-y: scroll;
+      .chapter {
+        height: calc(100vh - 432px - 50px - 72px);
+        width: 100%;
+        background-color: burlywood;
+        position: relative;
 
-        h1 {
-          border-bottom: 2px solid #DDD;
+        .inputChapter {
+          position: absolute;
+          right: 0;
+
+          .inputChapterButton {
+            position: relative;
+            margin-top: 4px;
+            z-index: 5;
+            margin-right: 10px;
+          }
+
+          .inputChapterBox {
+            position: absolute;
+            background-color: white;
+            border: 2px solid #CCC;
+            left: -120px;
+            width: 300px;
+            height: 200px;
+            padding: 10px;
+            z-index: 0;
+            opacity: 0;
+            top: 30px;
+            transition: all 0.3s 0.1s linear;
+
+            h3 {
+              margin: 0;
+              text-align: center;
+            }
+
+            h4 {
+              margin: 0;
+            }
+
+            .chapterTimeInput {
+              display: flex;
+            }
+
+            .yazirusi {
+              margin: 0 10px;
+            }
+
+            .inputName {
+              margin-top: 10px;
+            }
+
+            button {
+              margin: 20px auto;
+              width: 150px;
+              display: block;
+            }
+
+            .nameInputBox {
+              width: 250px;
+            }
+          }
+
+          .chapterBoxShow {
+            opacity: 1;
+            top: 45px;
+            z-index: 4;
+            transition: opacity 0.3s linear 0s , top 0.2s linear 0.1s;
+          }
         }
 
-        pre {
+        .table {
+          margin: 0 auto;
+          border-collapse: collapse;
+          background-color: white;
+          text-align: left;
+          line-height: 1.5;
           border: 2px solid #DDD;
-          background-color: beige;
-          padding: 10px;
-          font-size: 12px;
-          overflow-x: auto;
+          z-index: 3;
+          height: 100%;
+          min-height: 128px;
+
+          thead {
+            display: block;
+
+            th {
+              padding: 10px;
+              font-weight: bold;
+              vertical-align: top;
+              background-color: #EFE;
+              border-bottom: 3px solid $mainColor;
+            }
+          }
+
+          tbody {
+            cursor: pointer;
+            display: block;
+            overflow-y: scroll;
+            height: calc(100% - 54px);
+
+            &::-webkit-scrollbar {
+              display: none;
+            }
+
+            td {
+              padding: 10px;
+              vertical-align: top;
+              border-bottom: 1px solid #ccc;
+            }
+
+            tr {
+              opacity: 0.4;
+              font-size: 14px;
+              transition: background-color 0.5s 0s ease;
+            }
+
+            .nextDelete {
+              background-color: red;
+
+              &::after {
+                color: white;
+                opacity: 1;
+                background-color: black;
+                width: 100px;
+                height: 44px;
+                content: "再度クリックで削除";
+                position: absolute;
+                left: 770px;
+                border-radius: 4px;
+                padding: 4px;
+              }
+            }
+          }
+
+          .time {
+            padding-left: 40px;
+            width: $tableTimeWidth;
+          }
+
+          .name {
+            width: $leftWidth - $tableTimeWidth;
+          }
         }
       }
     }
+
+    .right {
+      width: $main-width - $leftWidth;
+      border: 3px solid #AAA;
+      box-sizing: border-box;
+      padding: 0 20px;
+      background-color: rgb(252, 249, 241);
+      height: 100%;
+      overflow-y: scroll;
+
+      h1 {
+        border-bottom: 2px solid #DDD;
+      }
+
+      pre {
+        border: 2px solid #DDD;
+        background-color: beige;
+        padding: 10px;
+        font-size: 12px;
+        overflow-x: auto;
+      }
+    }
   }
+}
