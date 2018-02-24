@@ -102,7 +102,7 @@ var vm = new Vue({
       }
     },
     updateMarkDown: function() {
-      if (this.selectNow == 11) this.source = marked(this.editedMarkDown)
+      this.source = marked(this.editedMarkDown)
       this.markSelect = this.markSelect == 1 ? 0 : 1
     },
     createJson: function() {
