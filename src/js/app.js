@@ -27,17 +27,16 @@ var vm = new Vue({
       tableData: [],
       title: 'タイトル',
       subCate: '',
-      videoUrl: 'https://rprjie.meijo-u.ac.jp/lectures/ie-exp3/video/WINCAPS3_ControlMethod.mp4',
+      videoUrl: 'https://rprjie.meijo-u.ac.jp/lectures/Prog4/video/Java_HowToCompile.mp4',
       loaded: "",
       source: "",
       videoData: ["", "", "", ""],
-      preVideo: "",
-      nextVideo: "",
       chapOk: true,
       selectNow: 0,
       tempName: "",
       deleteIndex: -1,
-      exportJson: "こん"
+      exportJson: "",
+      editedMarkDown: "# タイトル  \n上のボタンから編集してください"
     }
   },
   mounted() {
@@ -102,6 +101,46 @@ var vm = new Vue({
       } else {
         this.selectNow = index + 100;
       }
+    },
+    updateMarkDown: function() {
+      if (this.selectNow == 11) this.source = marked(this.editedMarkDown)
+
+      this.selectNow = this.selectNow == 11 ? 0 : 11
+
+      console.log(this.editedMarkDown)
+    },
+    createJson: function() {
+
+      var time = "12"
+      var name = "nameads"
+      var retJson = {
+        "title": this.title,
+        "url": this.videoUrl,
+        "subCategory": this.subCate,
+        "chapter": [],
+        "source": this.editedMarkDown,
+        "nextVideo": this.videoData[0],
+        "preVideo": this.videoData[1],
+        "nextName": this.videoData[2],
+        "preName": this.videoData[3]
+      }
+
+      var chapterData = this.tableData
+      for (var val in chapterData) {
+        const time = chapterData[val].time + ""
+        const name = chapterData[val].name
+        if (chapterData[val]) {
+          retJson.chapter.push({
+            "time": time,
+            "name": name
+          })
+        }
+      }
+
+
+      if (this.selectNow != 10) this.exportJson =
+        JSON.stringify(retJson, null, '   ');
+      this.selectNow = this.selectNow == 10 ? 0 : 10
     }
   },
 
@@ -110,9 +149,9 @@ var vm = new Vue({
     this.loaded = "loaded"
     this.update()
     // this.exportJson = JSON.stringify({
-    //   x: 5,
-    //   y: 6
-    // })
+    //   a: 2
+    // }, null, '   ');
+    this.source = marked(this.editedMarkDown)
   },
   filters: {
     toTime: function(value) {

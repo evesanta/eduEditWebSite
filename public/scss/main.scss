@@ -19,6 +19,20 @@ header {
   background-color: $mainColor;
   color: white;
   padding-left: 10px;
+  display: flex;
+
+  h1 {
+    margin: 0;
+  }
+
+  .el-button {
+    height: 46px;
+    margin-top: 1px;
+  }
+
+  .togleMarkDown {
+    margin-left: 660px;
+  }
 }
 
 .mainContainer {
@@ -88,6 +102,7 @@ header {
 
         video {
           width: 100%;
+          height: 100%;
         }
       }
 
@@ -376,10 +391,11 @@ header {
       width: $main-width - $leftWidth;
       border: 3px solid #AAA;
       box-sizing: border-box;
-      padding: 0 20px;
+      padding: 0;
       background-color: rgb(252, 249, 241);
       height: 100%;
       overflow-y: scroll;
+      position: relative;
 
       h1 {
         border-bottom: 2px solid #DDD;
@@ -391,6 +407,23 @@ header {
         padding: 10px;
         font-size: 12px;
         overflow-x: auto;
+      }
+
+      .markDown {
+        position: relative;
+        margin-left: 20px;
+        margin-right: 20px;
+        z-index: 2;
+      }
+
+      textarea {
+        font-size: 18px;
+        width: 100%;
+        height: 100%;
+      }
+
+      .markDownEditer {
+        background-color: #fffbe9;
       }
     }
   }
