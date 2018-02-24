@@ -120,10 +120,10 @@
             </table>
           </div>
         </div>
-        <div class="right">
-          <div class="markDown" v-html="source" v-if="selectNow < 10 || 12 < selectNow"></div>
-          <textarea class="markDownEditer" v-model="editedMarkDown" v-if="selectNow == 11"></textarea>
-          <textarea v-if="selectNow == 10">{{ exportJson }}</textarea>
+        <div class="right" @click="selectNow=0">
+          <div class="markDown" v-html="source" v-if="markSelect == 0"></div>
+          <textarea class="markDownEditer" v-model="editedMarkDown" v-if="markSelect == 1"></textarea>
+          <textarea v-if="markSelect == 2">{{ exportJson }}</textarea>
         </div>
       </div>
     </div>

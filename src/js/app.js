@@ -33,6 +33,7 @@ var vm = new Vue({
       videoData: ["", "", "", ""],
       chapOk: true,
       selectNow: 0,
+      markSelect: 0,
       tempName: "",
       deleteIndex: -1,
       exportJson: "",
@@ -82,7 +83,6 @@ var vm = new Vue({
       })
     },
     addChapter: function(nowt, name) {
-      console.log(nowt)
       this.tableData.push({
         time: nowt || 0,
         endTime: nowt + 1,
@@ -94,7 +94,6 @@ var vm = new Vue({
       });
     },
     chapterDelete: function(index) {
-      console.log(this.selectNow)
       if (this.selectNow == index + 100) {
         delete this.tableData[index + ""]
         this.selectNow = 0;
@@ -104,10 +103,7 @@ var vm = new Vue({
     },
     updateMarkDown: function() {
       if (this.selectNow == 11) this.source = marked(this.editedMarkDown)
-
-      this.selectNow = this.selectNow == 11 ? 0 : 11
-
-      console.log(this.editedMarkDown)
+      this.markSelect = this.markSelect == 1 ? 0 : 1
     },
     createJson: function() {
 
@@ -137,10 +133,9 @@ var vm = new Vue({
         }
       }
 
-
       if (this.selectNow != 10) this.exportJson =
         JSON.stringify(retJson, null, '   ');
-      this.selectNow = this.selectNow == 10 ? 0 : 10
+      this.markSelect = this.markSelect == 2 ? 0 : 2
     }
   },
 
