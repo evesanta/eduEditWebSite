@@ -38,7 +38,7 @@ var vm = new Vue({
       deleteIndex: -1,
       exportJson: "",
       githubLink: "",
-      editedMarkDown: "# タイトル  \n上のボタンから編集してください"
+      editedMarkDown: "# タイトルを書いてください\n\nこの部分は、上の\"マークダウン編集\"から変更できます。\n\n*マークダウン*で書くことができるので ~~こんなこと~~もできます\n\n* リスト\n* を書いたり。\n\n```java\nSystem.out.println(\"ソースコードがかけます\");\n```\n※__ソースコードは１つ目の\\```の左に言語の名前を書いてください__"
     }
   },
   mounted() {
