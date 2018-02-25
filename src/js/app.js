@@ -37,6 +37,7 @@ var vm = new Vue({
       tempName: "",
       deleteIndex: -1,
       exportJson: "",
+      githubLink: "",
       editedMarkDown: "# タイトル  \n上のボタンから編集してください"
     }
   },
@@ -115,10 +116,12 @@ var vm = new Vue({
         "subCategory": this.subCate,
         "chapter": [],
         "source": this.editedMarkDown,
-        "nextVideo": this.videoData[0],
-        "preVideo": this.videoData[1],
-        "nextName": this.videoData[2],
-        "preName": this.videoData[3]
+        "github": this.githubLink,
+        "preVideo": this.videoData[0],
+        "preName": this.videoData[2],
+        "nextVideo": this.videoData[1],
+        "nextName": this.videoData[3]
+
       }
 
       var chapterData = this.tableData
