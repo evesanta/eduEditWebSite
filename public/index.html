@@ -48,15 +48,20 @@
               </div>
               <el-button @click="selectNow= selectNow==4? 0: 4">ビデオ入力</el-button>
             </div>
-            <a href="https://github.com/evesanta/eduWebSite" target="_blank">
-            <span class="gitHub">
-              <!-- <octicon name="mark-github"></octicon>
-              <octicon name="logo-github"></octicon> -->
-            </span>
-            </a>
+
+            <div class="inputGitHub">
+              <el-button @click="selectNow= selectNow==5? 0: 5">GitHub</el-button>
+
+              <div class="GithubInputBox" :class="selectNow == 5 ? 'githubInputBoxShow' : '' ">
+                <h4>GitHubへのURLを入力してください</h4>
+                <input v-model="githubLink" placeholder="http://...." />
+              </div>
+            </div>
 
             <div class="flameVideo">
-              <el-button @click="selectNow= selectNow==2? 0: 2"> &lt; {{videoData[2]}}</el-button>
+              <el-button @click="selectNow= selectNow==2? 0: 2"> &lt;
+                <span v-if="videoData[2] == ''">前の動画入力</span> {{videoData[2]}}
+              </el-button>
               <div class="moveVideoInputBox" :class="selectNow == 2 ? 'inputBoxShow' : '' ">
                 <div class="inputVideoBoxFlame">
                   <h4>動画タイトル：</h4>
@@ -71,7 +76,8 @@
             </div>
 
             <div class="flameVideo">
-              <el-button @click="selectNow= selectNow==3? 0: 3"> {{videoData[3]}} &gt; </el-button>
+              <el-button @click="selectNow= selectNow==3? 0: 3"> {{videoData[3]}}
+                <span v-if="videoData[3] == ''">次の動画入力</span> &gt; </el-button>
               <div class="moveVideoInputBox" :class="selectNow == 3 ? 'inputBoxShow' : '' ">
                 <div class="inputVideoBoxFlame">
                   <h4>動画タイトル：</h4>

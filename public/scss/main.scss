@@ -127,7 +127,6 @@ header {
           .videoInputBox {
             text-align: center;
             z-index: 1;
-            transition: all 0.2s 0s linear;
             transition: all 0.2s linear 0s;
             opacity: 0;
             background-color: white;
@@ -150,28 +149,6 @@ header {
 
         &:visited {
           color: #000;
-        }
-
-        .gitHub {
-          background-color: white;
-          height: 38px;
-          line-height: 42px;
-          padding: 0 20px;
-          border-radius: 4px;
-          border: 1px solid #dcdfe6;
-          color: #000;
-          display: inline-block;
-          height: 38px;
-          text-align: center;
-
-          &:hover {
-            opacity: 0.8;
-          }
-
-          &:hover + .tooltip {
-            opacity: 0.9;
-            transition: opacity 0.5s 0.4s ease;
-          }
         }
 
         .tooltip {
@@ -200,6 +177,42 @@ header {
           }
         }
 
+        .inputGitHub {
+          position: relative;
+          margin-right: 20px;
+
+          button {
+            position: relative;
+            z-index: 5;
+          }
+
+          .GithubInputBox {
+            position: absolute;
+            text-align: center;
+            background-color: white;
+            z-index: 1;
+            width: 300px;
+            height: 100px;
+            top: -90px;
+            left: -120px;
+            border: 2px solid #CCC;
+            box-shadow: 2px 2px 4px #777;
+            transition: all 0.2s linear 0s;
+            opacity: 0;
+
+            input {
+              width: 250px;
+            }
+          }
+
+          .githubInputBoxShow {
+            z-index: 5;
+            opacity: 1;
+            top: -110px;
+            transition: opacity 0.3s linear 0s , top 0.2s linear 0.1s;
+          }
+        }
+
         .flameVideo {
           transition: opacity 0.3s 0s ease;
           text-decoration: none;
@@ -209,6 +222,7 @@ header {
           button {
             position: relative;
             z-index: 5;
+            min-width: 130px;
           }
 
           .moveVideoInputBox {
