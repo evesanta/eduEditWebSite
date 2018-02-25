@@ -27,10 +27,12 @@ var vm = new Vue({
       tableData: [],
       title: 'タイトル',
       subCate: '',
-      videoUrl: 'https://rjie.meijo-u.ac.jp/lectures/ie-exp3/video/WINCAPS3_ControlMethod.mp4',
+      videoUrl: 'https://rprjie.meijo-u.ac.jp/lectures/ie-exp3/video/WINCAPS3_ControlMethod.mp4',
       loaded: "",
       source: "",
-      videoData: ["/video/", "/video/", "", ""],
+      videoData: ["", "", "", ""],
+      preVideo: "",
+      nextVideo: "",
       chapOk: true,
       selectNow: 0,
       tempName: "",
@@ -124,6 +126,4 @@ var vm = new Vue({
   }
 })
 
-
-
-// this.app.$options.methods.update(this.app.$options.data)
+// this.app.$options.methods.update(this.app.$options.data)///
