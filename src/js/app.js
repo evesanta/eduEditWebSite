@@ -25,7 +25,7 @@ var vm = new Vue({
     return {
       nowTime: 0,
       tableData: [],
-      title: 'タイトル',
+      title: '',
       subCate: '',
       videoUrl: 'https://rprjie.meijo-u.ac.jp/lectures/Prog4/video/Java_HowToCompile.mp4',
       loaded: "",

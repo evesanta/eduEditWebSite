@@ -27,11 +27,11 @@
 </li>
 -->
         <li itemscope="itemscope" itemtype="http://data-vocabulary.org/Breadcrumb">
-          <span itemprop="title">{{title}}</span>
+          <span v-if="title == ''">ここでタイトルを入力</span><span itemprop="title">{{title}}</span>
           <el-button class="inputButton" @click="selectNow= selectNow==1? 0: 1" type="primary" plain>入力</el-button>
           <div class="titleInputBox" :class="selectNow == 1 ? 'inputBoxShow' : '' ">
             <h4>タイトルを入力</h4>
-            <input v-model="title" />
+            <input v-model="title" placeholder="コマンドの使い方" />
           </div>
         </li>
       </ul>
