@@ -55,8 +55,8 @@ var vm = new Vue({
       video.currentTime = this.tableData[index].time;
       video.play();
     },
-    saisei: function() {
-      if (this.selectNow != 0) return
+    saisei: function(ok) {
+      if (this.selectNow != 0 && ok) return
       this.chapOk = true;
       this.moveScroll(this.nowTime);
       video.paused ? video.play() : video.pause();

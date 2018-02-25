@@ -38,7 +38,7 @@
       <div class="main">
         <div class="left">
           <div class="video" @click="selectNow=0">
-            <video id="video" controls :src="videoUrl" @click="saisei()" autobuffer></video>
+            <video id="video" controls :src="videoUrl" @click="saisei(true)" autobuffer></video>
           </div>
           <div class="itemBox">
             <div class="inputVideo">
@@ -94,8 +94,9 @@
           </div>
           <div class="chapter">
             <div class="inputChapter">
-              <el-button class="inputChapterButton" @click="selectNow=selectNow==99? 0: 99">追加</el-button>
+              <el-button class="inputChapterButton" @click="selectNow=selectNow==99? 0: 99">チャプター追加</el-button>
               <div class="inputChapterBox" :class="selectNow == 99 ? 'chapterBoxShow' : ''">
+                <el-button class="videoButton" type="info" round @click="saisei(false)">ビデオ操作</el-button>
                 <h3>チャプターの入力</h3>
                 <h4>time</h4>
                 <div class="chapterTimeInput">
