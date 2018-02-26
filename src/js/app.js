@@ -25,18 +25,20 @@ var vm = new Vue({
     return {
       nowTime: 0,
       tableData: [],
-      title: 'タイトル',
+      title: '',
       subCate: '',
-      videoUrl: 'https://rprjie.meijo-u.ac.jp/lectures/ie-exp3/video/WINCAPS3_ControlMethod.mp4',
+      videoUrl: 'https://rprjie.meijo-u.ac.jp/lectures/Prog4/video/Java_HowToCompile.mp4',
       loaded: "",
       source: "",
       videoData: ["", "", "", ""],
-      preVideo: "",
-      nextVideo: "",
       chapOk: true,
       selectNow: 0,
+      markSelect: 0,
       tempName: "",
-      deleteIndex: -1
+      deleteIndex: -1,
+      exportJson: "",
+      githubLink: "",
+      editedMarkDown: "# タイトルを書いてください\n\nこの部分は、上の\"マークダウン編集\"から変更できます。\n\n*マークダウン*で書くことができるので ~~こんなこと~~もできます\n\n* リスト\n* を書いたり。\n\n```java\nSystem.out.println(\"ソースコードがかけます\");\n```\n※__ソースコードは１つ目の\\```の左に言語の名前を書いてください__"
     }
   },
   mounted() {
@@ -53,8 +55,8 @@ var vm = new Vue({
       video.currentTime = this.tableData[index].time;
       video.play();
     },
-    saisei: function() {
-      if (this.selectNow != 0) return
+    saisei: function(ok) {
+      if (this.selectNow != 0 && ok) return
       this.chapOk = true;
       this.moveScroll(this.nowTime);
       video.paused ? video.play() : video.pause();
@@ -82,7 +84,6 @@ var vm = new Vue({
       })
     },
     addChapter: function(nowt, name) {
-      console.log(nowt)
       this.tableData.push({
         time: nowt || 0,
         endTime: nowt + 1,
@@ -94,13 +95,50 @@ var vm = new Vue({
       });
     },
     chapterDelete: function(index) {
-      console.log(this.selectNow)
       if (this.selectNow == index + 100) {
         delete this.tableData[index + ""]
         this.selectNow = 0;
       } else {
         this.selectNow = index + 100;
       }
+    },
+    updateMarkDown: function() {
+      this.source = marked(this.editedMarkDown)
+      this.markSelect = this.markSelect == 1 ? 0 : 1
+    },
+    createJson: function() {
+
+      var time = "12"
+      var name = "nameads"
+      var retJson = {
+        "title": this.title,
+        "url": this.videoUrl,
+        "subCategory": this.subCate,
+        "chapter": [],
+        "source": this.editedMarkDown,
+        "github": this.githubLink,
+        "preVideo": this.videoData[0],
+        "preName": this.videoData[2],
+        "nextVideo": this.videoData[1],
+        "nextName": this.videoData[3]
+
+      }
+
+      var chapterData = this.tableData
+      for (var val in chapterData) {
+        const time = chapterData[val].time + ""
+        const name = chapterData[val].name
+        if (chapterData[val]) {
+          retJson.chapter.push({
+            "time": time,
+            "name": name
+          })
+        }
+      }
+
+      if (this.selectNow != 10) this.exportJson =
+        JSON.stringify(retJson, null, '   ');
+      this.markSelect = this.markSelect == 2 ? 0 : 2
     }
   },
 
@@ -108,6 +146,10 @@ var vm = new Vue({
   created: async function() {
     this.loaded = "loaded"
     this.update()
+    // this.exportJson = JSON.stringify({
+    //   a: 2
+    // }, null, '   ');
+    this.source = marked(this.editedMarkDown)
   },
   filters: {
     toTime: function(value) {

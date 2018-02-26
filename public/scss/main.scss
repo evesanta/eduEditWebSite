@@ -19,6 +19,20 @@ header {
   background-color: $mainColor;
   color: white;
   padding-left: 10px;
+  display: flex;
+
+  h1 {
+    margin: 0;
+  }
+
+  .el-button {
+    height: 46px;
+    margin-top: 1px;
+  }
+
+  .togleMarkDown {
+    margin-left: 660px;
+  }
 }
 
 .mainContainer {
@@ -88,6 +102,7 @@ header {
 
         video {
           width: 100%;
+          height: 100%;
         }
       }
 
@@ -112,7 +127,6 @@ header {
           .videoInputBox {
             text-align: center;
             z-index: 1;
-            transition: all 0.2s 0s linear;
             transition: all 0.2s linear 0s;
             opacity: 0;
             background-color: white;
@@ -135,28 +149,6 @@ header {
 
         &:visited {
           color: #000;
-        }
-
-        .gitHub {
-          background-color: white;
-          height: 38px;
-          line-height: 42px;
-          padding: 0 20px;
-          border-radius: 4px;
-          border: 1px solid #dcdfe6;
-          color: #000;
-          display: inline-block;
-          height: 38px;
-          text-align: center;
-
-          &:hover {
-            opacity: 0.8;
-          }
-
-          &:hover + .tooltip {
-            opacity: 0.9;
-            transition: opacity 0.5s 0.4s ease;
-          }
         }
 
         .tooltip {
@@ -185,6 +177,42 @@ header {
           }
         }
 
+        .inputGitHub {
+          position: relative;
+          margin-right: 20px;
+
+          button {
+            position: relative;
+            z-index: 5;
+          }
+
+          .GithubInputBox {
+            position: absolute;
+            text-align: center;
+            background-color: white;
+            z-index: 1;
+            width: 300px;
+            height: 100px;
+            top: -90px;
+            left: -120px;
+            border: 2px solid #CCC;
+            box-shadow: 2px 2px 4px #777;
+            transition: all 0.2s linear 0s;
+            opacity: 0;
+
+            input {
+              width: 250px;
+            }
+          }
+
+          .githubInputBoxShow {
+            z-index: 5;
+            opacity: 1;
+            top: -110px;
+            transition: opacity 0.3s linear 0s , top 0.2s linear 0.1s;
+          }
+        }
+
         .flameVideo {
           transition: opacity 0.3s 0s ease;
           text-decoration: none;
@@ -194,6 +222,7 @@ header {
           button {
             position: relative;
             z-index: 5;
+            min-width: 140px;
           }
 
           .moveVideoInputBox {
@@ -250,12 +279,16 @@ header {
             border: 2px solid #CCC;
             left: -120px;
             width: 300px;
-            height: 200px;
+            height: 260px;
             padding: 10px;
             z-index: 0;
             opacity: 0;
             top: 30px;
             transition: all 0.3s 0.1s linear;
+
+            .videoButton {
+              margin: 0 auto 30px;
+            }
 
             h3 {
               margin: 0;
@@ -346,16 +379,17 @@ header {
               background-color: red;
 
               &::after {
+                font-size: 18px;
                 color: white;
                 opacity: 1;
                 background-color: black;
-                width: 100px;
-                height: 44px;
+                width: 170px;
+                height: 28px;
                 content: "再度クリックで削除";
                 position: absolute;
-                left: 770px;
+                left: 570px;
                 border-radius: 4px;
-                padding: 4px;
+                padding: 7 4px;
               }
             }
           }
@@ -376,10 +410,11 @@ header {
       width: $main-width - $leftWidth;
       border: 3px solid #AAA;
       box-sizing: border-box;
-      padding: 0 20px;
+      padding: 0;
       background-color: rgb(252, 249, 241);
       height: 100%;
       overflow-y: scroll;
+      position: relative;
 
       h1 {
         border-bottom: 2px solid #DDD;
@@ -391,6 +426,23 @@ header {
         padding: 10px;
         font-size: 12px;
         overflow-x: auto;
+      }
+
+      .markDown {
+        position: relative;
+        margin-left: 20px;
+        margin-right: 20px;
+        z-index: 2;
+      }
+
+      textarea {
+        font-size: 18px;
+        width: 100%;
+        height: 100%;
+      }
+
+      .markDownEditer {
+        background-color: #fffbe9;
       }
     }
   }
